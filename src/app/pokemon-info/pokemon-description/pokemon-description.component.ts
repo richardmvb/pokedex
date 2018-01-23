@@ -5,7 +5,6 @@ import { PokemonDescription } from '../../shared/models/pokemon-description';
   selector: 'app-pokemon-description',
   templateUrl: './pokemon-description.component.html',
   styleUrls: ['./pokemon-description.component.css']
-  ]
 })
 export class PokemonDescriptionComponent implements OnInit, OnChanges {
   @Input() descriptions: PokemonDescription[];

@@ -1,7 +1,8 @@
 {
-  "name": "pokedex-v2",
-  "version": "0.0.0",
+  "name": "pokedex-rmvb",
+  "version": "1.0.0",
   "license": "MIT",
+  "description": "pokedex (pokeapi.co) app with angular 2 + materialize",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +11,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "engines": {
+    "node": "8.9.4"
+  },
+  "private": false,
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/cdk": "^5.0.4",
