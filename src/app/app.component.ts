@@ -1,20 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { PokemonEntry } from './models/pokemon-entry';
+import { PokeapiService } from './services/pokeapi.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private _titleService: Title, private _router: Router) {
+  public title: String = 'Poke-AZ';
+  public pokemons: PokemonEntry[] = [];
 
+  constructor (private pokeapiService: PokeapiService) { }
+  
+  ngOnInit(): void {
+    this.pokeapiService.findAll().subscribe(
+      (data) => {
+        this.pokemons = data.pokemons;
+      },
+      (error) => {
+        throw new Error(error);
+        
+      })
   }
 
-  ngOnInit() {
-    this._router.events
-      .filter(event => event instanceof NavigationStart)
-      .subscribe(event => this._titleService.setTitle('Pokédex'));
+  public speakPokemon(pokemonName: string) {
+    window.speechSynthesis.speak(new SpeechSynthesisUtterance(pokemonName));
   }
 }
