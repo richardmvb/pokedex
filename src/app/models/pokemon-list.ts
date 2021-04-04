@@ -1,12 +1,12 @@
-import {PokemonEntry} from './pokemon-entry';
+import { PokemonEntry } from './pokemon-entry';
 
-export class PokemonList {
-  pokemons: PokemonEntry[];
-  count: number;
-
-
-  constructor(pokemons: PokemonEntry[], count: number) {
-    this.pokemons = pokemons;
-    this.count = count;
-  }
+export interface PokemonList {
+    count: number;
+    next: string;
+    previous: any;
+    results: {
+        name: string;
+        url: string;
+    }[];
 }
+

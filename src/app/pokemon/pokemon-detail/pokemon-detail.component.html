@@ -1,0 +1,33 @@
+
+<button
+    mat-fab
+    color="basic"
+    class="back-button"
+    aria-label="voltar"
+    (click)="locationService.back()"
+>
+<mat-icon>arrow_back</mat-icon>
+</button>
+<div class="row">
+    <div class="col s12 m6">
+        
+        <h1>{{ pokemon?.name }}</h1>
+        <img 
+            [src]="pokemon.sprites['official'] || pokemon.sprites['front']"
+            [alt]="pokemon.name"
+        /> 
+        
+    </div>
+
+    <div class="col s12 m6">
+        <app-pokemon-ability-info [pokemon]="pokemon"></app-pokemon-ability-info>
+        <app-pokemon-types [types]="pokemon?.types"></app-pokemon-types>
+    </div>
+</div>
+
+
+<app-pokemon-stats 
+    *ngFor="let status of pokemon?.stats"
+    [stats]="status"
+>
+</app-pokemon-stats>

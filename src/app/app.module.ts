@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
   
-import { PokeapiService } from './services/pokeapi.service';
+import { PokemonModule } from './pokemon/pokemon.module';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { PokemonDetailComponent } from './pokemon/pokemon-detail/pokemon-detail.component';
+import { PokedexService } from './services/pokedex.service';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,15 @@ import { PokeapiService } from './services/pokeapi.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([
+      { path: 'pokemon/:id', component: PokemonDetailComponent },
+      { path: '', component: PokemonComponent, pathMatch: 'full' }
+    ]),
     HttpClientModule,
-    MatToolbarModule,
-    MatCardModule
+    PokemonModule,
+    MatToolbarModule
   ],
-  providers: [PokeapiService],
+  providers: [PokedexService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

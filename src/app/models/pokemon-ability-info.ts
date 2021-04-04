@@ -7,6 +7,7 @@ export class PokemonAbilityInfo {
   abilities: PokemonAbility[];
   moves: PokemonMoves[];
   category: string;
+  genera: string | any;
   base_experience: string;
 
 
