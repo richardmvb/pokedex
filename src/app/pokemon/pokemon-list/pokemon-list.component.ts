@@ -19,17 +19,7 @@ export class PokemonListComponent implements OnInit {
     this.router.navigate([`pokemon/${pokemonId}`]);
   }
 
-  public speakPokemon(pokemonName: string) {
-    window.speechSynthesis.speak(new SpeechSynthesisUtterance(pokemonName));
-  }
-
-  /**
-   * Vai gerar a string do background do card dependendo de quantos tipos o pokémon tem;
-   * - Se tem um tipo só, retorna o hexadecimal com um pouco de alpha no final para transparecia
-   * - Se tem mais de 1 tipo, então retorna o gradiente
-   * @param types o array de tipos do pokémon
-   */
-   getPokemonType(types): string {
+  getPokemonType(types): string {
     if (types.length === 1) {
       const typeID = +types[0].type.url.split('type/')[1].replace(/[^0-9]/g, '');
       return `${this.typesService.pokemonTypes.get(typeID).name}`;

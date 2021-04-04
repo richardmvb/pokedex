@@ -24,9 +24,13 @@ export class PokemonDetailComponent implements OnInit {
     });
   }
 
+  public speakPokemon(pokemonName: string) {
+    console.log(pokemonName)
+    window.speechSynthesis.speak(new SpeechSynthesisUtterance(pokemonName));
+  }
+
   private getPokemonById(pokemonId: number): void {
     this.pokedexService.getPokemonByID(pokemonId).subscribe(pokemon => {
-      console.log(pokemon);
       this.pokemon = this.initializePokémonInformation(pokemon);
     });
   }

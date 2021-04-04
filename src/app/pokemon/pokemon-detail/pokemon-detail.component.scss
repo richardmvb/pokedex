@@ -3,3 +3,36 @@ img {
     width: 200px;
     height: auto;
 }
+
+section {
+  display: table;
+  margin-bottom: 20px;
+}
+
+.poke-detail-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.poke-detail-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.poke-detail-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.poke-detail-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.poke-detail-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}

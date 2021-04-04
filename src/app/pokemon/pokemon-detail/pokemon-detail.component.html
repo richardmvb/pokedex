@@ -2,21 +2,31 @@
 <button
     mat-fab
     color="basic"
-    class="back-button"
-    aria-label="voltar"
+    aria-label="back"
     (click)="locationService.back()"
 >
-<mat-icon>arrow_back</mat-icon>
+    <mat-icon>arrow_back</mat-icon>
 </button>
 <div class="row">
-    <div class="col s12 m6">
-        
+    <div class="col s12 m6">    
         <h1>{{ pokemon?.name }}</h1>
         <img 
-            [src]="pokemon.sprites['official'] || pokemon.sprites['front']"
-            [alt]="pokemon.name"
-        /> 
+            [src]="pokemon?.sprites['official'] || pokemon?.sprites['front']"
+            [alt]="pokemon?.name"
+        />
         
+        <section>
+            <div class="poke-detail-label">Ações</div>
+            <div class="poke-detail-button-row">
+                <div class="poke-detail-flex-container">
+                    <div class="poke-detail-button-container">
+                        <button (click)="speakPokemon(pokemon?.name)" mat-mini-fab color="primary" aria-label="poke-detail icon button with a menu icon">
+                            <mat-icon>record_voice_over</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>      
     </div>
 
     <div class="col s12 m6">
@@ -25,9 +35,9 @@
     </div>
 </div>
 
-
 <app-pokemon-stats 
     *ngFor="let status of pokemon?.stats"
     [stats]="status"
 >
 </app-pokemon-stats>
+
