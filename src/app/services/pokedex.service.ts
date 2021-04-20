@@ -36,7 +36,6 @@ export class PokedexService {
         tap((res: any) => this.lengthSubject.next(res.count)),
         map((res: PokemonList) => res.results),
         catchError((error) => {
-          console.log('getPokemonList', error);
           return throwError(error);
         }),
         mergeMap(this.loadPokemonsFromApiOrDB),

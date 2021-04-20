@@ -4,9 +4,10 @@
     padding: 15px;
     transition: filter .3s ease-out;
     cursor: pointer;
+    background: linear-gradient(110deg, #FDBB2D 0%, #3A1C71 100%);
   
     &__caption {
-      background-color: rgba(#ffffff, 0.65);
+      background-color: rgba(#ffffff, 0.35);
       padding: 1em;
       position: relative;
       border-radius: 0 0 3px 3px;
@@ -71,7 +72,7 @@
       justify-content: space-between;
     }
     &__ability {
-      margin-top: 1em;
+      margin-top: 0.5em;
       flex: 1 0;
     }
     
